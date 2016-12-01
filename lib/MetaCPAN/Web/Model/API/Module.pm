@@ -301,9 +301,9 @@ sub search {
                     }
                 },
                 {
-                    term => {
+                    match => {
                         'module.name' => {
-                            value => $query,
+                            query => $query,
                             boost => 20
                         }
                     }
