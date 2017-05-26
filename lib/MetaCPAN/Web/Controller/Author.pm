@@ -85,6 +85,16 @@ sub index : Chained('root') PathPart('') Args(0) {
 
     my ( $aggregated, $latest ) = @{ $self->_calc_aggregated($releases) };
 
+    my @dists = map { $_->{distribution} } @{$releases};
+    my $river = $self->_get_river_for_dists( $c, \@dists );
+    use DDP;
+    p $river;
+    foreach my $release ( @{$releases} ) {
+        $release->{river} = $river->{$release->{distribution}};
+        p $release;
+        last;
+    }
+
     $c->stash(
         {
             aggregated => $aggregated,
@@ -92,6 +102,7 @@ sub index : Chained('root') PathPart('') Args(0) {
             faves      => $faves,
             latest     => $latest,
             releases   => $releases,
+            river      => $river,
             template   => 'author.html',
             took       => $took,
             total      => $data->{hits}->{total},
@@ -165,6 +176,27 @@ sub _calc_aggregated {
     }
 
     return [ \@aggregated, $latest ];
+}
+
+sub _get_river_for_dists {
+    my ( $self, $c, $dists ) = @_;
+
+    my $dist_search = {
+        query => {
+            bool => {
+                should => [ map { +{ term => { name => $_ } } } @{$dists} ],
+            },
+        },
+        size => 999,
+    };
+
+    my $dists_found
+        = $c->model('API::Distribution')
+        ->request( '/distribution/_search', $dist_search )->recv;
+
+    my %river = map { $_->{_source}->{name} => $_->{_source}->{river} }
+        @{ $dists_found->{hits}->{hits} };
+    return \%river;
 }
 
 __PACKAGE__->meta->make_immutable;

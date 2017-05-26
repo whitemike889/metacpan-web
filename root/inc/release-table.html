@@ -11,7 +11,10 @@
   <tbody>
   <%- FOREACH release IN releases %>
     <tr>
-      <td class="name"><strong><a href="/release/<% IF release.status == 'latest'; release.distribution; ELSE; release.author; '/'; release.name; END %>" class="ellipsis" title="<% release.author; '/'; release.name %>"><% release.name %></a></strong></td>
+      <td class="name">
+        <% release.river.bucket %>
+        <strong><a href="/release/<% IF release.status == 'latest'; release.distribution; ELSE; release.author; '/'; release.name; END %>" class="ellipsis" title="<% release.author; '/'; release.name %>"><% release.name %></a></strong>
+      </td>
       <td class="abstract"><% IF release.abstract; release.abstract; END %></td>
       <td class="date relatize" sort="<% release.date.dt_http %>"><% release.date.dt_http %></td>
     </tr>
