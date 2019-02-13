@@ -31,7 +31,7 @@ requires 'Gazelle';
 requires 'Getopt::Long::Descriptive';
 requires 'Gravatar::URL';
 requires 'HTML::Escape';
-requires 'HTML::Restrict', '2.2.2';
+requires 'HTML::Restrict', '2.5.0';
 requires 'HTML::Selector::XPath';
 requires 'HTML::Tree';
 requires 'HTTP::Message::PSGI';

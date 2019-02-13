@@ -712,7 +712,6 @@ DISTRIBUTIONS
       Config::Any::XML undef
       Config::Any::YAML undef
     requirements:
-      Config::General 2.47
       Module::Pluggable::Object 3.6
   Config-General-2.63
     pathname: T/TL/TLINDEN/Config-General-2.63.tar.gz
@@ -1810,10 +1809,11 @@ DISTRIBUTIONS
       HTML::Tagset 3
       XSLoader 0
       perl 5.008
-  HTML-Restrict-v2.3.0
-    pathname: O/OA/OALDERS/HTML-Restrict-v2.3.0.tar.gz
+  HTML-Restrict-v2.5.0
+    pathname: O/OA/OALDERS/HTML-Restrict-v2.5.0.tar.gz
     provides:
-      HTML::Restrict 2.003000
+      HTML::Restrict 2.005000
+      HTML::Restrict::Types 2.005000
     requirements:
       Carp 0
       Data::Dump 0
@@ -1824,23 +1824,20 @@ DISTRIBUTIONS
       Moo 1.002000
       Scalar::Util 0
       Sub::Quote 0
-      Types::Standard 1.000001
+      Type::Library 0
+      Type::Tiny 1.002001
+      Type::Utils 0
       URI 0
       namespace::clean 0
       perl 5.006
       strict 0
       version 0
+      warnings 0
   HTML-Selector-XPath-0.23
     pathname: C/CO/CORION/HTML-Selector-XPath-0.23.tar.gz
     provides:
       HTML::Selector::XPath 0.23
     requirements:
-      Carp 0
-      Exporter 0
-      ExtUtils::MakeMaker 0
-      Test::Base 0
-      Test::More 0
-      strict 0
   HTML-Tagset-3.20
     pathname: P/PE/PETDANCE/HTML-Tagset-3.20.tar.gz
     provides:
@@ -2245,6 +2242,7 @@ DISTRIBUTIONS
       JSON::MaybeXS 1.004000
     requirements:
       Carp 0
+      Cpanel::JSON::XS 2.3310
       ExtUtils::MakeMaker 0
       JSON::PP 2.27300
       Scalar::Util 0
@@ -4847,13 +4845,6 @@ DISTRIBUTIONS
       parent 0
       strict 0
       warnings 0
-  Spiffy-0.46
-    pathname: I/IN/INGY/Spiffy-0.46.tar.gz
-    provides:
-      Spiffy 0.46
-      Spiffy::mixin undef
-    requirements:
-      ExtUtils::MakeMaker 6.30
   Starman-0.4014
     pathname: M/MI/MIYAGAWA/Starman-0.4014.tar.gz
     provides:
@@ -5081,7 +5072,7 @@ DISTRIBUTIONS
       Template::Monad::Scalar 1
       Template::Namespace::Constants 1.27
       Template::Parser 2.89
-      Template::Perl 2.2
+      Template::Perl 2.87
       Template::Plugin 2.7
       Template::Plugin::Assert 1
       Template::Plugin::CGI 2.7
@@ -5124,20 +5115,6 @@ DISTRIBUTIONS
       File::Spec 0.8
       File::Temp 0.12
       Scalar::Util 0
-  Test-Base-0.89
-    pathname: I/IN/INGY/Test-Base-0.89.tar.gz
-    provides:
-      Test::Base 0.89
-      Test::Base::Block 0.89
-      Test::Base::Filter undef
-      Test::Base::Handle 0.89
-    requirements:
-      ExtUtils::MakeMaker 0
-      Filter::Util::Call 0
-      Scalar::Util 1.07
-      Spiffy 0.40
-      Test::More 0.88
-      perl 5.008001
   Test-Deep-1.128
     pathname: R/RJ/RJBS/Test-Deep-1.128.tar.gz
     provides:
